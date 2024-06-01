@@ -24,11 +24,16 @@
 </head>
 <body>
   <h1>商品リスト</h1>
+  
   <ul id="productList"></ul>
 
   <h2>注文リスト</h2>
   <ul id="orderList"></ul>
   <div id="totalPrice">Total: 0円</div>
+
+  <h1>상품 목록</h1>
+  <div id="productList"></div>
+  <div id="pagination"></div>
 
   <button id="orderButton">注文する</button>
 
@@ -71,20 +76,56 @@ const products = [
 
 ];
 
+// 페이지당 표시할 상품 수
+const productsPerPage = 10;
+// 현재 페이지 (초기값: 1)
+let currentPage = 1;
 
-// 상품 목록 표시
-const productList = document.getElementById('productList');
-products.forEach(product => {
-const listItem = document.createElement('li');
+function displayProducts() {
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+  const displayedProducts = products.slice(startIndex, endIndex);
+
+  const productList = document.getElementById('productList');
+  productList.innerHTML = ''; // 기존 목록 초기화
+
+  displayedProducts.forEach(product => {
+    const listItem = document.createElement('li');
 listItem.innerHTML = `
   ${product.name} - ${product.price}원
   <button onclick="decreaseQuantity(${product.id})">-</button>
   <span id="quantity-${product.id}">0</span>
   <button onclick="increaseQuantity(${product.id})">+</button>
 `;
-productList.appendChild(listItem);
-});
 
+    productList.appendChild(listItem);
+  });
+
+    // 페이지네이션 업데이트
+    updatePagination();
+  
+}
+
+// 페이지네이션 업데이트
+function updatePagination() {
+  const totalPages = Math.ceil(products.length / productsPerPage);
+  const pagination = document.getElementById('pagination');
+  pagination.innerHTML = ''; // 기존 페이지네이션 초기화
+
+  for (let i = 1; i <= totalPages; i++) {
+    const pageLink = document.createElement('a');
+    pageLink.href = '#';
+    pageLink.textContent = i;
+    pageLink.addEventListener('click', () => {
+      currentPage = i;
+      displayProducts();
+    });
+    pagination.appendChild(pageLink);
+  }
+}
+
+// 페이지 로딩 후 상품 목록 표시
+displayProducts();
 // 선택된 상품 정보 저장 (초기값: 빈 객체)
 let selectedProducts = {};
 
@@ -173,6 +214,8 @@ if (navigator.share) {
 
 // 주문하기 버튼 클릭 이벤트 리스너
 document.getElementById('orderButton').addEventListener('click', shareOrderInformation);
+
+
   </script>
 </body>
 </html>
