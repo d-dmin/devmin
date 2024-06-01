@@ -31,7 +31,6 @@
   <ul id="orderList"></ul>
   <div id="totalPrice">Total: 0円</div>
 
-  <h1>상품 목록</h1>
   <div id="productList"></div>
   <div id="pagination"></div>
 
@@ -175,8 +174,6 @@ function updateOrderInformation() {
       // 상품 목록 수량 업데이트
       document.getElementById(`quantity-${productId}`).textContent = product.quantity;
     }
-  
-    totalPriceElement.textContent = `총 금액: ${totalPrice}원`;
   }
   
   // 주문 페이지 이동 함수 (예시 - 실제 페이지 이동 또는 주문 처리 로직 구현)
