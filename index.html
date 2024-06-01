@@ -92,8 +92,7 @@ function displayProducts() {
   displayedProducts.forEach(product => {
     const listItem = document.createElement('li');
 listItem.innerHTML = `
-<img src="${product.imageUrl}" alt="${product.name}" height="100"> <br> 
-  ${product.name} 
+<img src="${product.imageUrl}" alt="${product.name}" height="100">  ${product.name} 
   <button onclick="decreaseQuantity(${product.id})">-</button>
   <span id="quantity-${product.id}">0</span>
   <button onclick="increaseQuantity(${product.id})">+</button>
