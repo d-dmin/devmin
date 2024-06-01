@@ -40,7 +40,7 @@
   <script>
     // 상품 정보 배열 (실제 데이터는 별도 파일/DB에서 가져오기)
 const products = [
-{ id: 1, name: '梨ジュース', price: 1000 },
+{ id: 1, name: '梨ジュース', price: 1000, imageUrl: 'https://example.com/images/tshirt.jpg' },
 { id: 2, name: 'ハチミツ', price: 1000 },
 { id: 3, name: 'コーラ', price: 2000 },
 { id: 4, name: 'サイダー', price: 3000 },
@@ -92,6 +92,7 @@ function displayProducts() {
   displayedProducts.forEach(product => {
     const listItem = document.createElement('li');
 listItem.innerHTML = `
+<img src="${product.imageUrl}" alt="${product.name}" height="100"> <br> 
   ${product.name} 
   <button onclick="decreaseQuantity(${product.id})">-</button>
   <span id="quantity-${product.id}">0</span>
