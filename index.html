@@ -92,7 +92,7 @@ function displayProducts() {
   displayedProducts.forEach(product => {
     const listItem = document.createElement('li');
 listItem.innerHTML = `
-  ${product.name} - ${product.price}원
+  ${product.name} 
   <button onclick="decreaseQuantity(${product.id})">-</button>
   <span id="quantity-${product.id}">0</span>
   <button onclick="increaseQuantity(${product.id})">+</button>
