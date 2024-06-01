@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>간단 발주 페이지</title>
+  <title>くるむ＿ドリンク発注</title>
   <style>
     body { 
       font-family: sans-serif; 
@@ -23,22 +23,28 @@
   </style>
 </head>
 <body>
-  <h1>상품 목록</h1>
+  <h1>商品リスト</h1>
   <ul id="productList"></ul>
 
-  <h2>주문 정보</h2>
+  <h2>注文リスト</h2>
   <ul id="orderList"></ul>
-  <div id="totalPrice">총 금액: 0원</div>
+  <div id="totalPrice">Total: 0円</div>
 
-  <button id="orderButton">주문하기</button>
+  <button id="orderButton">注文する</button>
 
   <script>
     // 상품 정보 배열 (실제 데이터는 별도 파일/DB에서 가져오기)
 const products = [
-{ id: 1, name: '상품 A', price: 1000 },
-{ id: 2, name: '상품 B', price: 2000 },
-{ id: 3, name: '상품 C', price: 3000 },
+{ id: 1, name: '梨ジュース', price: 1000 },
+{ id: 2, name: 'コーラ', price: 2000 },
+{ id: 3, name: 'サイダー', price: 3000 },
+{ id: 4, name: '炭酸水', price: 3000 },
+{ id: 5, name: 'サイダー', price: 3000 },
+{ id: 6, name: 'サイダー', price: 3000 },
+{ id: 7, name: 'サイダー', price: 3000 },
+
 ];
+
 
 // 상품 목록 표시
 const productList = document.getElementById('productList');
