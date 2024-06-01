@@ -184,7 +184,7 @@ function updateOrderInformation() {
 
 // 주문 정보 문자열 생성 함수
 function createOrderMessage() {
-let message = "お世話になっております。\nくるむ 新大久保でございます。\n下記の発注をしますので、ご確認よろしくお願いいたします。\n";
+let message = "お世話になっております。\nくるむ 新大久保でございます。\n下記の発注をしますので、ご確認よろしくお願いいたします。\n===================\n";
 for (const productId in selectedProducts) {
   const product = selectedProducts[productId];
   message += `${product.name} x ${product.quantity}個\n`;
