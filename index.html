@@ -165,7 +165,7 @@ function updateOrderInformation() {
     for (const productId in selectedProducts) {
       const product = selectedProducts[productId];
       const listItem = document.createElement('li');
-      listItem.textContent = `${product.name} x ${product.quantity}개`;
+      listItem.textContent = `${product.name} x ${product.quantity}個`;
       orderList.appendChild(listItem);
   
       totalPrice += product.price * product.quantity;
@@ -184,7 +184,7 @@ function updateOrderInformation() {
 
 // 주문 정보 문자열 생성 함수
 function createOrderMessage() {
-let message = "お世話になっております。\nくるむ 新大久保でございます。\n下記の発注をしますので、ご確認よろしくお願いいたします。\n===================\n";
+let message = "お世話になっております。\nくるむ 新大久保でございます。\n下記通り発注致します。\n===================\n";
 for (const productId in selectedProducts) {
   const product = selectedProducts[productId];
   message += `${product.name} x ${product.quantity}個\n`;
